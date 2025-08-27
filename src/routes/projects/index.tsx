@@ -7,10 +7,10 @@ export default component$(() => {
     // Qwik's SSR-friendly fetch (runs on server, then client)
     const projectsResource = useResource$<any[]>(async () => {
         const res = await fetch(`${apiBase}/projects/`);
-        const data = await res.json();
-        // If paginated, return data.results; else just data
-        return data.results || data;
+        const data = (await res.json()) as any;
+        return data.results ?? data;
     });
+
 
     return (
         <div class="container mx-auto p-8">

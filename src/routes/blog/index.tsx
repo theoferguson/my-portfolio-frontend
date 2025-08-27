@@ -6,8 +6,8 @@ export default component$(() => {
 
     const blogPostsResource = useResource$<any[]>(async () => {
         const res = await fetch(`${apiBase}/blogposts/`);
-        const data = await res.json();
-        return data.results || data;
+        const data = (await res.json()) as any;
+        return data.results ?? data;
     });
 
     return (

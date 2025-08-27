@@ -6,16 +6,11 @@ export default component$(() => {
     const apiBase = import.meta.env.VITE_API_BASE_URL;
     const postId = loc.params.id;
 
-    const postResource = useResource$(async () => {
-        try {
-            const res = await fetch(`${apiBase}/blogposts/${postId}/`);
-            if (!res.ok) throw new Error(`Blog post not found (${res.status})`);
-            const data = await res.json();
-            return data;
-        } catch (err) {
-            console.error('Blog post page API error:', err);
-            throw err;
-        }
+    const postResource = useResource$<any>(async () => {
+        const res = await fetch(`${apiBase}/blogposts/${postId}/`);
+        if (!res.ok) throw new Error(`Blog post not found (${res.status})`);
+        const data = (await res.json()) as any;
+        return data;
     });
 
     return (

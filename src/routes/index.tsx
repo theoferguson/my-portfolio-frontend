@@ -7,31 +7,22 @@ import { ProjectCard } from '~/components/ProjectCard';
 export default component$(() => {
   const apiBase = import.meta.env.VITE_API_BASE_URL;
 
-  // Fetch latest 5 blog posts
-  const blogsResource = useResource$(async () => {
-    try {
-      const res = await fetch(`${apiBase}/blogposts/?ordering=-published_date&limit=5`);
-      if (!res.ok) throw new Error('Failed to fetch blog posts');
-      const data = await res.json();
-      return data.results ? data.results : data;
-    } catch (err) {
-      console.error('Blog sidebar API error:', err);
-      throw err;
-    }
+  // blogs
+  const blogsResource = useResource$<any[]>(async () => {
+    const res = await fetch(`${apiBase}/blogposts/?ordering=-published_date&limit=5`);
+    if (!res.ok) throw new Error('Failed to fetch blog posts');
+    const data = (await res.json()) as any;
+    return data.results ?? data;
   });
 
-  // Fetch top 3 projects (customize ordering if needed)
-  const projectsResource = useResource$(async () => {
-    try {
-      const res = await fetch(`${apiBase}/projects/?ordering=-created_at&limit=3`);
-      if (!res.ok) throw new Error('Failed to fetch projects');
-      const data = await res.json();
-      return data.results ? data.results : data;
-    } catch (err) {
-      console.error('Projects API error:', err);
-      throw err;
-    }
+  // projects
+  const projectsResource = useResource$<any[]>(async () => {
+    const res = await fetch(`${apiBase}/projects/?ordering=-created_at&limit=3`);
+    if (!res.ok) throw new Error('Failed to fetch projects');
+    const data = (await res.json()) as any;
+    return data.results ?? data;
   });
+
 
   return (
     <div class="flex flex-col md:flex-row gap-8 mt-8 max-w-6xl mx-auto">

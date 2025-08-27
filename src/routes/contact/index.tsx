@@ -12,18 +12,14 @@ export default component$(() => {
     const error = useSignal('');
     const success = useSignal('');
 
-    const profileResource = useResource$(async () => {
-        try {
-            const res = await fetch(`${apiBase}/profile/`);
-            if (!res.ok) throw new Error(`Failed to fetch profile: ${res.status} ${res.statusText}`);
-            const data = await res.json();
-            if (!data.results || !data.results.length) throw new Error('No profile data returned');
-            return data.results[0];
-        } catch (err) {
-            console.error('Contact page API error:', err);
-            throw err;
-        }
+    const profileResource = useResource$<any>(async () => {
+        const res = await fetch(`${apiBase}/profile/`);
+        if (!res.ok) throw new Error(`Failed to fetch profile: ${res.status} ${res.statusText}`);
+        const data = (await res.json()) as any;
+        if (!data.results || !data.results.length) throw new Error('No profile data returned');
+        return data.results[0];
     });
+
 
     const handleSubmit = $(async (event: any) => {
         event.preventDefault();

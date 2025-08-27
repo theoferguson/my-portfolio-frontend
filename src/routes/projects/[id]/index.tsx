@@ -6,16 +6,11 @@ export default component$(() => {
   const apiBase = import.meta.env.VITE_API_BASE_URL;
   const projectId = loc.params.id;
 
-  const projectResource = useResource$(async () => {
-    try {
-      const res = await fetch(`${apiBase}/projects/${projectId}/`);
-      if (!res.ok) throw new Error(`Project not found (${res.status})`);
-      const data = await res.json();
-      return data;
-    } catch (err) {
-      console.error('Project page API error:', err);
-      throw err;
-    }
+  const projectResource = useResource$<any>(async () => {
+    const res = await fetch(`${apiBase}/projects/${projectId}/`);
+    if (!res.ok) throw new Error(`Project not found (${res.status})`);
+    const data = (await res.json()) as any;
+    return data;
   });
 
   return (

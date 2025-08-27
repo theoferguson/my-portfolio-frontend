@@ -3,18 +3,12 @@ import { component$, useResource$, Resource } from '@builder.io/qwik';
 export default component$(() => {
   const apiBase = import.meta.env.VITE_API_BASE_URL;
 
-  const profileResource = useResource$(async () => {
-    try {
-      const res = await fetch(`${apiBase}/profile/`);
-      if (!res.ok) throw new Error(`Failed to fetch profile: ${res.status} ${res.statusText}`);
-      const data = await res.json();
-      console.log('Profile API response:', data);
-      if (!data.results || !data.results.length) throw new Error('No profile data returned');
-      return data.results[0];
-    } catch (err) {
-      console.error('About page API error:', err);
-      throw err;
-    }
+  const profileResource = useResource$<any>(async () => {
+    const res = await fetch(`${apiBase}/profile/`);
+    if (!res.ok) throw new Error(`Failed to fetch profile: ${res.status} ${res.statusText}`);
+    const data = (await res.json()) as any;
+    if (!data.results || !data.results.length) throw new Error('No profile data returned');
+    return data.results[0];
   });
 
   return (
