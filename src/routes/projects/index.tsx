@@ -2,8 +2,7 @@ import { component$, useResource$, Resource } from '@builder.io/qwik';
 import { ProjectCard } from '~/components/ProjectCard';
 
 export default component$(() => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL;
-
+    const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
     // Qwik's SSR-friendly fetch (runs on server, then client)
     const projectsResource = useResource$<any[]>(async () => {
         const res = await fetch(`${apiBase}/projects/`);

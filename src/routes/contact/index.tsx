@@ -7,7 +7,7 @@ declare global {
 }
 
 export default component$(() => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL;
+    const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
     const submitting = useSignal(false);
     const error = useSignal('');
     const success = useSignal('');

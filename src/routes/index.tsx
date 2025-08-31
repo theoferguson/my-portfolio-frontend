@@ -5,7 +5,7 @@ import { ProjectCard } from '~/components/ProjectCard';
 // import { ProjectCard } from '../components/ProjectCard';
 
 export default component$(() => {
-  const apiBase = import.meta.env.VITE_API_BASE_URL;
+  const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
 
   // blogs
   const blogsResource = useResource$<any[]>(async () => {

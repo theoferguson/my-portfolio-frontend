@@ -1,7 +1,7 @@
 import { component$, useResource$, Resource } from '@builder.io/qwik';
 
 export default component$(() => {
-  const apiBase = import.meta.env.VITE_API_BASE_URL;
+  const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
 
   const profileResource = useResource$<any>(async () => {
     const res = await fetch(`${apiBase}/profile/`);

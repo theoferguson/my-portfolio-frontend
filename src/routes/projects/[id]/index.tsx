@@ -3,7 +3,7 @@ import { useLocation } from '@builder.io/qwik-city';
 
 export default component$(() => {
   const loc = useLocation();
-  const apiBase = import.meta.env.VITE_API_BASE_URL;
+  const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
   const projectId = loc.params.id;
 
   const projectResource = useResource$<any>(async () => {
