@@ -20,7 +20,6 @@ export default component$(() => {
         return data.results[0];
     });
 
-
     const handleSubmit = $(async (event: any) => {
         event.preventDefault();
         submitting.value = true;
