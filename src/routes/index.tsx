@@ -39,7 +39,13 @@ export default component$(() => {
           )}
           onResolved={projects => (
             <>
-              <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div
+                class={
+                  projects.length === 1
+                    ? "grid grid-cols-1 gap-6"
+                    : "grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-6"
+                }
+              >
                 {projects.slice(0, 3).map((project: any) => (
                   <ProjectCard key={project.id} project={project} />
                 ))}

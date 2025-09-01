@@ -6,7 +6,7 @@ export const Layout = component$(() => {
     return (
         <div class="flex flex-col min-h-screen bg-gray-50 text-gray-900">
             {/* Header/Nav goes here */}
-            <header class="bg-white shadow py-4 px-4 flex items-center justify-between">
+            <header class="bg-white shadow py-4 px-9 flex items-center justify-between">
                 {/* Logo/brand */}
                 <a href="/" class="text-2xl font-bold text-blue-600">
                     Theo Ferguson

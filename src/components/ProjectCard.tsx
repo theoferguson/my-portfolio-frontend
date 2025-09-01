@@ -30,6 +30,6 @@ export const ProjectCard = component$(({ project }: { project: Project }) => (
       </video>
     )}
 
-<a href={`/projects/${project.id}/`} class="hover:underline">{project.title}</a>
+    <a href={`/projects/${project.id}/`} class="hover:underline">{project.title}</a>
   </div>
 ));
