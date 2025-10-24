@@ -1,6 +1,7 @@
 name = "my-portfolio-frontend"
 main = "./dist/_worker.js"
 compatibility_date = "2025-08-26"
+pages_build_output_dir = "./dist"
 
 [vars]
-VITE_API_BASE_URL = "https://theo-portfolio-backend-white-rain-2600.fly.dev"
+VITE_API_BASE_URL = "https://theo-portfolio-backend-white-rain-2600.fly.dev/api"
