@@ -33,6 +33,8 @@ export default component$(() => {
                 src={profile.headshot}
                 alt={profile.name || 'Profile headshot'}
                 class="rounded-full w-40 mx-auto mb-4 shadow-md"
+                width={160}
+                height={160}
                 onError$={e => {
                   console.error('Image failed to load:', e);
                   if (e.target) {

@@ -22,6 +22,8 @@ export const ProjectCard = component$(({ project }: { project: Project }) => (
         class="w-full mt-4 rounded"
         src={project.image}
         alt={project.title}
+        width={800}
+        height={450}
         loading="lazy"
       />
     )}

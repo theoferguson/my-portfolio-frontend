@@ -16,7 +16,7 @@ export const BlogPostCard = component$(({ post }: { post: BlogPost }) => (
     >
         <h2 class="text-xl font-semibold text-gray-900">{post.title}</h2>
         <p class="mt-2 text-gray-600 line-clamp-3">{post.content}</p>
-        {post.image && <img class="w-full mt-4 rounded" src={post.image} alt={post.title} loading="lazy" />}
+        {post.image && <img class="w-full mt-4 rounded" src={post.image} alt={post.title} width={800} height={450} loading="lazy" />}
         {post.video && (
             <video class="w-full mt-2" controls>
                 <source src={post.video} />

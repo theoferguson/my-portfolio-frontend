@@ -32,6 +32,8 @@ export default component$(() => {
                                 src={post.cover_image}
                                 alt={post.title}
                                 class="rounded my-4"
+                                width={1200}
+                                height={630}
                                 onError$={e => {
                                     if (e.target) {
                                         (e.target as HTMLElement).style.display = 'none';

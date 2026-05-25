@@ -37,24 +37,20 @@ export default component$(() => {
                 honeypot: event.target.honeypot.value,
                 recaptcha_token: token,
             };
-            console.log('Form submitted with data:', formData);
-
             // 3. Send to backend
             const res = await fetch(`${apiBase}/contact/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-            const result = await res.json();
-            console.log('API response:', result);
+            await res.json();
             if (res.ok) {
                 success.value = 'Message sent!';
             } else {
                 error.value = 'Failed to send message. Please try again.';
             }
-        } catch (e) {
+        } catch {
             error.value = 'reCAPTCHA failed or was blocked.';
-            console.log(e)
         }
         submitting.value = false;
     });

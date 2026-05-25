@@ -31,6 +31,8 @@ export default component$(() => {
                 src={project.image}
                 alt={project.title}
                 class="rounded my-4"
+                width={1200}
+                height={630}
                 onError$={e => {
                   if (e.target && 'style' in e.target) {
                     (e.target as HTMLElement).style.display = 'none';
