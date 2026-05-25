@@ -26,10 +26,10 @@ export default component$(() => {
                 onResolved={post => (
                     <>
                         <h1>{post.title}</h1>
-                        <p class="text-sm text-gray-500">{post.published_date}</p>
-                        {post.cover_image && (
+                        <p class="text-sm text-gray-500">{post.published_at?.slice(0, 10)}</p>
+                        {post.image && (
                             <img
-                                src={post.cover_image}
+                                src={post.image}
                                 alt={post.title}
                                 class="rounded my-4"
                                 width={1200}
