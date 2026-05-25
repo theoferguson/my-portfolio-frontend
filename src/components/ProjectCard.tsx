@@ -10,9 +10,12 @@ type Project = {
 };
 
 export const ProjectCard = component$(({ project }: { project: Project }) => (
-  <div class="bg-white shadow rounded-lg p-4 flex flex-col">
-    <h2 class="text-xl font-semibold">{project.title}</h2>
-    <p class="mt-2">{project.description}</p>
+  <a
+    href={`/projects/${project.id}/`}
+    class="bg-white shadow rounded-lg p-4 flex flex-col hover:shadow-lg transition-shadow duration-200 cursor-pointer no-underline text-inherit"
+  >
+    <h2 class="text-xl font-semibold text-gray-900">{project.title}</h2>
+    <p class="mt-2 text-gray-600 line-clamp-3">{project.description}</p>
 
     {project.image && (
       <img
@@ -29,7 +32,5 @@ export const ProjectCard = component$(({ project }: { project: Project }) => (
         Your browser does not support the video tag.
       </video>
     )}
-
-    <a href={`/projects/${project.id}/`} class="hover:underline">{project.title}</a>
-  </div>
+  </a>
 ));

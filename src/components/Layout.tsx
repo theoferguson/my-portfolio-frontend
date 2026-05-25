@@ -62,7 +62,7 @@ export const Layout = component$(() => {
                 <Slot />
             </main>
             <button
-                class="fixed bottom-4 right-24 bg-blue-600 text-white p-2 rounded shadow"
+                class="fixed bottom-4 left-4 bg-blue-600 text-white p-2 rounded shadow hover:bg-blue-700 transition-colors duration-200"
                 onClick$={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
                 ↑ Top
