@@ -1,4 +1,5 @@
 import { component$, useResource$, Resource } from '@builder.io/qwik';
+import type { DocumentHead } from '@builder.io/qwik-city';
 import { useLocation } from '@builder.io/qwik-city';
 
 export default component$(() => {
@@ -58,3 +59,7 @@ export default component$(() => {
     </div>
   );
 });
+
+export const head: DocumentHead = {
+  title: 'Project | Theo Ferguson',
+};

@@ -1,4 +1,5 @@
 import { component$, useResource$, Resource } from '@builder.io/qwik';
+import type { DocumentHead } from '@builder.io/qwik-city';
 
 export default component$(() => {
   const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
@@ -80,3 +81,8 @@ export default component$(() => {
     </div>
   );
 });
+
+export const head: DocumentHead = {
+  title: 'About | Theo Ferguson',
+  meta: [{ name: 'description', content: 'About Theo Ferguson — software engineer.' }],
+};

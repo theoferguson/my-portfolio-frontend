@@ -1,4 +1,5 @@
 import { component$, useResource$, Resource } from '@builder.io/qwik';
+import type { DocumentHead } from '@builder.io/qwik-city';
 import { BlogPostCard } from '~/components/BlogPostCard';
 
 export default component$(() => {
@@ -11,7 +12,7 @@ export default component$(() => {
     });
 
     return (
-        <>
+        <div class="container mx-auto p-8">
             <h1 class="text-3xl font-bold mb-6">Blog</h1>
             <Resource
                 value={blogPostsResource}
@@ -25,6 +26,11 @@ export default component$(() => {
                     </div>
                 )}
             />
-        </>
+        </div>
     );
 });
+
+export const head: DocumentHead = {
+    title: 'Blog | Theo Ferguson',
+    meta: [{ name: 'description', content: 'Writing on software, projects, and engineering.' }],
+};

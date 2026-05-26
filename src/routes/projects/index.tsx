@@ -1,4 +1,5 @@
 import { component$, useResource$, Resource } from '@builder.io/qwik';
+import type { DocumentHead } from '@builder.io/qwik-city';
 import { ProjectCard } from '~/components/ProjectCard';
 
 export default component$(() => {
@@ -29,3 +30,8 @@ export default component$(() => {
         </div>
     );
 });
+
+export const head: DocumentHead = {
+    title: 'Projects | Theo Ferguson',
+    meta: [{ name: 'description', content: 'Software projects by Theo Ferguson.' }],
+};

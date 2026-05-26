@@ -1,4 +1,5 @@
 import { component$, useResource$, Resource, useSignal, $ } from '@builder.io/qwik';
+import type { DocumentHead } from '@builder.io/qwik-city';
 
 declare global {
     interface Window {
@@ -157,3 +158,8 @@ export default component$(() => {
         </div>
     );
 });
+
+export const head: DocumentHead = {
+    title: 'Contact | Theo Ferguson',
+    meta: [{ name: 'description', content: 'Get in touch with Theo Ferguson.' }],
+};

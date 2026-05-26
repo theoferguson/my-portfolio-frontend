@@ -1,4 +1,5 @@
 import { component$, useResource$, Resource } from '@builder.io/qwik';
+import type { DocumentHead } from '@builder.io/qwik-city';
 import { useLocation } from '@builder.io/qwik-city';
 
 export default component$(() => {
@@ -41,7 +42,11 @@ export default component$(() => {
                                 }}
                             />
                         )}
-                        <div dangerouslySetInnerHTML={post.content} />
+                        <div>
+                            {post.content?.split('\n\n').map((para: string, i: number) => (
+                                <p key={i} class="mb-4">{para}</p>
+                            ))}
+                        </div>
                         {post.projects && post.projects.length > 0 && (
                             <div class="mt-2 flex flex-wrap gap-2">
                                 {post.projects.map((project: any) => (
@@ -61,3 +66,7 @@ export default component$(() => {
         </div>
     );
 });
+
+export const head: DocumentHead = {
+    title: 'Blog | Theo Ferguson',
+};

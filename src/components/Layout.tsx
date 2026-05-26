@@ -58,7 +58,7 @@ export const Layout = component$(() => {
             </header>
 
             {/* Main content */}
-            <main class="flex-1 container mx-auto p-8">
+            <main class="flex-1 container mx-auto px-4 py-8 md:px-8">
                 <Slot />
             </main>
             <button
